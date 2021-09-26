@@ -12,6 +12,9 @@
     "plugin:jest/style",
     "plugin:prettier/recommended"
   ],
+  "plugins": [
+    "prefer-arrow"
+  ],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module",
@@ -41,6 +44,44 @@
       {
         "js": "never",
         "ts": "never"
+      }
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "prefer-arrow-callback": "error",
+    "func-style": [
+      "error",
+      "expression"
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false,
+        "allowStandaloneDeclarations": false
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.test.ts"
+        ],
+        "optionalDependencies": false
       }
     ]
   },

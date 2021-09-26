@@ -5,7 +5,7 @@ import app from "./app";
 /**
  * Normalize a port into a number, string, or false.
  */
-function normalizePort(val: string) {
+const normalizePort = (val: string) => {
   const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
@@ -15,7 +15,7 @@ function normalizePort(val: string) {
     return port;
   }
   return false;
-}
+};
 
 interface NodeError extends Error {
   code: string;
@@ -23,9 +23,9 @@ interface NodeError extends Error {
 interface SystemError extends NodeError {
   syscall: string;
 }
-function isSystemError(error: NodeError): error is SystemError {
+const isSystemError = (error: NodeError): error is SystemError => {
   return (error as SystemError).syscall !== undefined;
-}
+};
 
 const debug = debugModule("login:server");
 const port = normalizePort(process.env.PORT || "3000");
