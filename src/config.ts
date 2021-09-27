@@ -6,6 +6,15 @@ const secretLength = integerOr(process.env.SECRET_LENGTH, 256);
 
 const config = {
   /**
+   * Sign-up token time before expiration.
+   */
+  SIGN_UP_TOKEN_LIFETIME: integerOr(
+    process.env.SIGN_UP_TOKEN_LIFETIME,
+    600000 // 10 minutes
+  ),
+  SIGN_UP_TOKEN_SECRET: secureRandom({ length: secretLength }),
+
+  /**
    * Access token time before expiration.
    */
   ACCESS_TOKEN_LIFETIME: integerOr(
