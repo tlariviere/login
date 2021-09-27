@@ -29,7 +29,6 @@ const isSystemError = (error: NodeError): error is SystemError => {
 
 const debug = debugModule("login:server");
 const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
 
 const server = http.createServer(app);
 
@@ -62,8 +61,12 @@ server.on("listening", () => {
     return;
   }
 
-  const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
-  debug(`Listening on ${bind}`);
+  if (typeof addr === "string") {
+    debug(`Listening on pipe ${addr}`);
+  } else {
+    app.set("port", addr.port);
+    debug(`Listening on port ${addr.port}`);
+  }
 });
 
 server.listen(port);
