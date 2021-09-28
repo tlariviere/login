@@ -1,6 +1,6 @@
 import type { JwtHeader } from "njwt";
 
-import type { Request, ReqCookies, TokenBody } from "../utils/types";
+import type { Optional, Request, ReqCookies, TokenBody } from "../utils/types";
 import type TokenFamily from "./TokenFamily";
 
 // ===========================================================================
@@ -16,6 +16,10 @@ export interface User<Roles extends string> {
   hashedPassword: string;
   role?: Roles;
 }
+
+export type RoleLevels<Roles extends string> = {
+  [role in Roles]: number;
+};
 
 export interface UserInfo<Roles extends string> {
   id: UserId;
@@ -36,6 +40,11 @@ export interface ReqTokenCookies extends ReqCookies {
 export interface AuthenticateReq<Roles extends string> extends Request {
   user?: UserInfo<Roles>;
   cookies: ReqTokenCookies;
+}
+
+export interface AuthorizedReq<Roles extends string>
+  extends AuthenticateReq<Roles> {
+  user: UserInfo<Roles>;
 }
 
 // ===========================================================================
