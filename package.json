@@ -11,7 +11,8 @@
     "test": "npx jest"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.2",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
@@ -22,6 +23,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/debug": "^4.1.7",
     "@types/express": "^4.17.1",
