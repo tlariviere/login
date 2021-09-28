@@ -21,6 +21,13 @@ export type RoleLevels<Roles extends string> = {
   [role in Roles]: number;
 };
 
+export const isSupportedRole = <Roles extends string>(
+  roleLevels: RoleLevels<Roles>,
+  role: string
+): role is Roles => {
+  return roleLevels[role as Roles] !== undefined;
+};
+
 export interface UserInfo<Roles extends string> {
   id: UserId;
   role?: Roles;
@@ -84,3 +91,16 @@ export type FindUserFunction<Roles extends string> = {
   byId: (id: UserId) => Promise<Optional<User<Roles>>>;
   byLogin: (usernameOrEmail: string) => Promise<Optional<User<Roles>>>;
 };
+
+export type CreateUserFunction<Roles extends string> = (
+  name: string,
+  email: string,
+  hashedPassword: string,
+  role?: Roles
+) => Promise<User<Roles>>;
+
+export type SendSignUpEmailFunction = (
+  username: string,
+  email: string,
+  url: string
+) => Promise<void>;
