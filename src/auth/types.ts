@@ -99,8 +99,15 @@ export type CreateUserFunction<Roles extends string> = (
   role?: Roles
 ) => Promise<User<Roles>>;
 
+export type UpdatePasswordFunction<Roles extends string> = (
+  user: User<Roles>,
+  hashedNewPassword: string
+) => Promise<User<Roles>>;
+
 export type SendSignUpEmailFunction = (
   username: string,
   email: string,
   url: string
 ) => Promise<void>;
+
+export type SendPwdRecoverEmailFunction = SendSignUpEmailFunction;

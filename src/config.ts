@@ -38,6 +38,14 @@ const config = {
   REFRESH_TOKEN_SECRET: secureRandom({ length: secretLength }),
 
   /**
+   * Password recovery token time before expiration.
+   */
+  PWD_RECOVER_TOKEN_LIFETIME: integerOr(
+    process.env.PWD_RECOVER_TOKEN_LIFETIME,
+    600000 // 10 minutes
+  ),
+
+  /**
    * Maximum number of stored refresh token per token family (one family per logged user).
    */
   TOKEN_FAMILY_MAX_LENGTH: integerOr(process.env.TOKEN_FAMILY_MAX_LENGTH, 20),
