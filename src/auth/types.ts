@@ -69,3 +69,18 @@ export interface UnverifiedUserTokenBody<Roles extends string>
   extends AuthTokenBody<Roles> {
   email: string;
 }
+
+// ===========================================================================
+// Authenticate
+// ===========================================================================
+
+export interface UserUnprotectedData<Roles extends string> {
+  name: string;
+  email: string;
+  role?: Roles;
+}
+
+export type FindUserFunction<Roles extends string> = {
+  byId: (id: UserId) => Promise<Optional<User<Roles>>>;
+  byLogin: (usernameOrEmail: string) => Promise<Optional<User<Roles>>>;
+};
