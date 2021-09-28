@@ -111,3 +111,16 @@ export type SendSignUpEmailFunction = (
 ) => Promise<void>;
 
 export type SendPwdRecoverEmailFunction = SendSignUpEmailFunction;
+
+export interface AuthStrategy<Roles extends string> {
+  findUser: FindUserFunction<Roles>;
+  createUser: CreateUserFunction<Roles>;
+  updatePassword: UpdatePasswordFunction<Roles>;
+  sendSignUpEmail: SendSignUpEmailFunction;
+  sendPwdRecoverEmail: SendPwdRecoverEmailFunction;
+}
+
+export interface AuthOptions<Roles extends string> {
+  roleLevels: RoleLevels<Roles>;
+  https: boolean;
+}
