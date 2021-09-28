@@ -6,6 +6,11 @@ const secretLength = integerOr(process.env.SECRET_LENGTH, 256);
 
 const config = {
   /**
+   * Number of password hash rounds.
+   */
+  PASSWORD_HASH_ROUNDS: integerOr(process.env.PASSWORD_HASH_ROUNDS, 10),
+
+  /**
    * Sign-up token time before expiration.
    */
   SIGN_UP_TOKEN_LIFETIME: integerOr(
