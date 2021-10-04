@@ -16,7 +16,7 @@ import config from "../../config";
 import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
 import { verifyToken } from "../jwt";
-import userUnprotectedData from "./userUnprotectedData";
+import userUnprotectedData from "../userUnprotectedData";
 
 /**
  * Create router for signing up user with the following routes:
