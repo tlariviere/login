@@ -1,6 +1,8 @@
 import debugModule from "debug";
 import http from "http";
-import app from "./app";
+import express from "express";
+import logger from "morgan";
+import apiRouter from "./api";
 
 import type { NodeError } from "./utils/types";
 import exitWithError from "./utils/exitWithError";
@@ -9,6 +11,10 @@ import { isSystemError } from "./utils/types";
 
 const debug = debugModule("login:server");
 const port = normalizePort(process.env.PORT || "3000");
+const app = express();
+
+app.use(logger("dev"));
+app.use("/api", apiRouter);
 
 const server = http.createServer(app);
 
