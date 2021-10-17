@@ -102,7 +102,7 @@ export type CreateUserFunction<Roles extends string> = (
 export type UpdatePasswordFunction<Roles extends string> = (
   user: User<Roles>,
   hashedNewPassword: string
-) => Promise<User<Roles>>;
+) => Promise<Optional<User<Roles>>>;
 
 export type SendSignUpEmailFunction = (
   username: string,

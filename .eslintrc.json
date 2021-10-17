@@ -83,6 +83,12 @@
         ],
         "optionalDependencies": false
       }
+    ],
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      {
+        "ignoreIIFE": true
+      }
     ]
   },
   "settings": {

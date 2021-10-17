@@ -5,7 +5,23 @@ import type { JwtBody } from "njwt";
 // Optional
 // ===========================================================================
 
-export type Optional<T> = T | undefined;
+export type Optional<T> = T | null;
+
+// ===========================================================================
+// Error
+// ===========================================================================
+
+export interface NodeError extends Error {
+  code: string;
+}
+
+export interface SystemError extends NodeError {
+  syscall: string;
+}
+
+export const isSystemError = (error: NodeError): error is SystemError => {
+  return (error as SystemError).syscall !== undefined;
+};
 
 // ===========================================================================
 // express

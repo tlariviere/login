@@ -10,7 +10,7 @@ import MockTockenFamily from "../testingUtils/MockTokenFamily";
 import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
 import MockUnverifiedUsers from "../testingUtils/MockUnverifiedUsers";
 import { verifyToken } from "../jwt";
-import userUnprotectedData from "./userUnprotectedData";
+import userUnprotectedData from "../userUnprotectedData";
 import signUp from "./signUp";
 
 jest.mock("bcrypt");

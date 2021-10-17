@@ -12,11 +12,11 @@ import type {
 } from "../types";
 import { isSupportedRole } from "../types";
 import asyncHandler from "../../utils/asyncHandler";
-import config from "../../config";
+import config from "../../constants/token";
 import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
 import { verifyToken } from "../jwt";
-import userUnprotectedData from "./userUnprotectedData";
+import userUnprotectedData from "../userUnprotectedData";
 
 /**
  * Create router for signing up user with the following routes:
@@ -76,7 +76,7 @@ const signUp = <Roles extends string>(
         findUser.byLogin(username),
         findUser.byLogin(email),
       ]);
-      if (users.some((user) => user !== undefined)) {
+      if (users.some((user) => user !== null)) {
         res.status(400).send("Username of email already taken");
         return;
       }

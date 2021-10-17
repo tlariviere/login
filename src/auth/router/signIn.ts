@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 import type { Request, AsyncRequestHandler } from "../../utils/types";
 import type { FindUserFunction } from "../types";
-import userUnprotectedData from "./userUnprotectedData";
+import userUnprotectedData from "../userUnprotectedData";
 import TokenFamilies from "../TokenFamilies";
 
 /**

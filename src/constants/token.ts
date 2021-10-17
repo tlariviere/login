@@ -1,6 +1,6 @@
 import secureRandom from "secure-random-string";
 
-import integerOr from "./utils/integerOr";
+import integerOr from "../utils/integerOr";
 
 const secretLength = integerOr(process.env.SECRET_LENGTH, 256);
 

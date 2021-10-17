@@ -7,7 +7,7 @@ import MockFindUser from "../testingUtils/MockFindUser";
 import MockTockenFamily from "../testingUtils/MockTokenFamily";
 import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
 import MockResponse from "../testingUtils/MockResponse";
-import userUnprotectedData from "./userUnprotectedData";
+import userUnprotectedData from "../userUnprotectedData";
 import signIn from "./signIn";
 
 jest.mock("bcrypt");

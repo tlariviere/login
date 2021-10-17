@@ -1,4 +1,4 @@
-import type { User, UserUnprotectedData } from "../types";
+import type { User, UserUnprotectedData } from "./types";
 
 /**
  * Filter out sensible user data.
