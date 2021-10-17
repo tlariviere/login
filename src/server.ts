@@ -1,4 +1,3 @@
-import debugModule from "debug";
 import http from "http";
 import express from "express";
 import logger from "morgan";
@@ -9,7 +8,6 @@ import exitWithError from "./utils/exitWithError";
 import normalizePort from "./utils/normalizePort";
 import { isSystemError } from "./utils/types";
 
-const debug = debugModule("login:server");
 const port = normalizePort(process.env.PORT || "3000");
 const app = express();
 
@@ -46,10 +44,10 @@ server.on("listening", () => {
   }
 
   if (typeof addr === "string") {
-    debug(`Listening on pipe ${addr}`);
+    console.log(`Listening on pipe ${addr}`);
   } else {
     app.set("port", addr.port);
-    debug(`Listening on port ${addr.port}`);
+    console.log(`Listening on port ${addr.port}`);
   }
 });
 
