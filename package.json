@@ -16,6 +16,7 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
+    "mongoose": "^6.0.8",
     "morgan": "^1.10.0",
     "njwt": "^1.1.0",
     "secure-random-string": "^1.1.3"
