@@ -6,6 +6,8 @@ import { roleLevels } from "./strategy/roles";
 import strategy from "./strategy";
 import auth from "../auth";
 import "./initDB";
+import userRouter from "./routes/user";
+import adminRouter from "./routes/admin";
 
 const router = express.Router();
 
@@ -18,5 +20,9 @@ const {
   requireRole,
   router: authRouter,
 } = auth<Roles>(strategy, { roleLevels, https: false });
+
+router.use("/auth", authRouter);
+router.use("/user", requireLogin, userRouter);
+router.use("/admin", requireRole("admin"), adminRouter);
 
 export default router;
