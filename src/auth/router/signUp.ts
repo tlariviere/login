@@ -76,7 +76,7 @@ const signUp = <Roles extends string>(
         findUser.byLogin(username),
         findUser.byLogin(email),
       ]);
-      if (users.some((user) => user !== undefined)) {
+      if (users.some((user) => user !== null)) {
         res.status(400).send("Username of email already taken");
         return;
       }

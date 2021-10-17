@@ -5,7 +5,7 @@ import type { JwtBody } from "njwt";
 // Optional
 // ===========================================================================
 
-export type Optional<T> = T | undefined;
+export type Optional<T> = T | null;
 
 // ===========================================================================
 // Error
