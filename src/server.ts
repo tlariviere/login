@@ -1,6 +1,7 @@
 import http from "http";
 import express from "express";
 import logger from "morgan";
+import helmet from "helmet";
 import apiRouter from "./api";
 
 import type { NodeError } from "./utils/types";
@@ -12,6 +13,7 @@ const port = normalizePort(process.env.PORT || "3000");
 const app = express();
 
 app.use(logger("dev"));
+app.use(helmet());
 app.use("/api", apiRouter);
 
 const server = http.createServer(app);
