@@ -1,6 +1,7 @@
 import type { UserId, AuthTokenBody, JwtAuthData } from "./utils/types";
 import TokenFamily from "./TokenFamily";
 import config from "./constants/token";
+import setTimeoutWithOverflow from "./utils/setTimeoutWithOverflow";
 import { verifyToken } from "./utils/jwt";
 
 /**
@@ -25,7 +26,10 @@ export default class TokenFamilies<Roles extends string> {
     if (!family) {
       family = new TokenFamily();
       this.families_.set(userId, family);
-      setTimeout(() => family?.clear(), config.TOKEN_FAMILY_LIFETIME);
+      setTimeoutWithOverflow(
+        () => family?.clear(),
+        config.TOKEN_FAMILY_LIFETIME
+      );
     }
     return family;
   }
