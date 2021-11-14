@@ -5,8 +5,7 @@ import type { Roles } from "./roles";
 import UserModel from "../model/user";
 
 const findUserById = async (id: UserId): Promise<Optional<User<Roles>>> => {
-  const user = await UserModel.findById(id).lean();
-  console.log(user);
+  const user = await UserModel.findById(id).lean({ virtuals: true });
   return user;
 };
 
@@ -15,8 +14,7 @@ const findUserByLogin = async (
 ): Promise<Optional<User<Roles>>> => {
   const user = await UserModel.findOne()
     .or([{ name: usernameOrEmail }, { email: usernameOrEmail }])
-    .lean();
-  console.log(user);
+    .lean({ virtuals: true });
   return user;
 };
 

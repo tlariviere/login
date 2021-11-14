@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import mongooseLeanVirtuals from "mongoose-lean-virtuals";
 
 import type { User } from "../../auth/utils/types";
 import type { Roles } from "../strategy/roles";
@@ -12,5 +13,7 @@ const schema = new Schema({
   hashedPassword: { type: String, required: true },
   role: { type: String, enum: roles, default: "user" },
 });
+
+schema.plugin(mongooseLeanVirtuals);
 
 export default model<User<Roles>>("user", schema);
