@@ -1,14 +1,14 @@
+import type { Request } from "@tlariviere/utils";
 import { Router } from "express";
 import bcrypt from "bcrypt";
+import { asyncHandler } from "@tlariviere/utils";
 
-import type { Request } from "../../utils/types";
 import type {
   UserId,
   FindUserFunction,
   SendPwdRecoverEmailFunction,
   UpdatePasswordFunction,
 } from "../utils/types";
-import asyncHandler from "../../utils/asyncHandler";
 import config from "../constants/token";
 import { generateToken, verifyToken } from "../utils/jwt";
 

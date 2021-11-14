@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import type { Response } from "express";
+import type { Request } from "@tlariviere/utils";
 
-import type { Request } from "../../utils/types";
 import type TokenFamilies from "../TokenFamilies";
 import MockFindUser from "../utils/testing/MockFindUser";
 import MockTockenFamily from "../utils/testing/MockTokenFamily";

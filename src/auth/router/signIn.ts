@@ -1,7 +1,7 @@
 import type { CookieOptions } from "express";
 import bcrypt from "bcrypt";
+import type { Request, AsyncRequestHandler } from "@tlariviere/utils";
 
-import type { Request, AsyncRequestHandler } from "../../utils/types";
 import type { FindUserFunction } from "../utils/types";
 import userUnprotectedData from "../utils/userUnprotectedData";
 import TokenFamilies from "../TokenFamilies";

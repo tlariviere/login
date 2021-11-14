@@ -1,6 +1,6 @@
 import type { JwtHeader, JwtBody } from "njwt";
+import type { Optional, Request, ReqCookies } from "@tlariviere/utils";
 
-import type { Optional, Request, ReqCookies } from "../../utils/types";
 import type TokenFamily from "../TokenFamily";
 
 // ===========================================================================

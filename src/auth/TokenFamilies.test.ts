@@ -7,6 +7,7 @@ jest.useFakeTimers();
 const mockTokenFamilyClear = jest.fn();
 const mockIsAccessTokenValid = jest.fn();
 const mockCheckRefreshTokenOrInvalidate = jest.fn();
+
 jest.mock("./TokenFamily", () =>
   jest.fn().mockImplementation(() => ({
     isAccessTokenValid: mockIsAccessTokenValid,
