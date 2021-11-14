@@ -23,6 +23,7 @@ import signOut from "./signOut";
  *    If a minimum role is required in order to authorize some action,
  *    any role level higher or equal will be accepted.
  * @param options.https Is https enabled (default true).
+ * @param options.port Server url port.
  * @returns Express router.
  */
 const authRouter = <Roles extends string>(
@@ -35,7 +36,7 @@ const authRouter = <Roles extends string>(
   }: AuthStrategy<Roles>,
   tokenFamilies: TokenFamilies<Roles>,
   unverifiedUsers: UnverifiedUsers<Roles>,
-  { roleLevels, https = true }: AuthOptions<Roles>
+  { roleLevels, https = true, port = 80 }: AuthOptions<Roles>
 ): Router => {
   const cookieOptions = {
     secure: https,
@@ -53,7 +54,8 @@ const authRouter = <Roles extends string>(
       roleLevels,
       tokenFamilies,
       unverifiedUsers,
-      cookieOptions
+      cookieOptions,
+      port
     )
   );
   router.post(
@@ -63,7 +65,7 @@ const authRouter = <Roles extends string>(
   router.post("/refresh", asyncHandler(refresh(tokenFamilies, cookieOptions)));
   router.use(
     "/pwd-recover",
-    pwdRecover(findUser, sendPwdRecoverEmail, updatePassword)
+    pwdRecover(findUser, sendPwdRecoverEmail, updatePassword, port)
   );
   router.post("/sign-out", asyncHandler(signOut(tokenFamilies, cookieOptions)));
 

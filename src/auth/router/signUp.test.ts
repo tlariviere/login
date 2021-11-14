@@ -46,7 +46,8 @@ describe("Auth router sign-up without roles", () => {
     roleLevels,
     tokenFamilies as unknown as TokenFamilies<Roles>,
     unverifiedUsers as unknown as UnverifiedUsers<Roles>,
-    cookieOptions
+    cookieOptions,
+    1234
   );
   const unverifiedUserToken = {
     body: {
@@ -191,7 +192,8 @@ describe("Auth router sign-up with roles", () => {
     roleLevels,
     tokenFamilies as unknown as TokenFamilies<Roles>,
     unverifiedUsers as unknown as UnverifiedUsers<Roles>,
-    cookieOptions
+    cookieOptions,
+    1234
   );
   const mockBcryptHash = bcrypt.hash as jest.Mock<Promise<unknown>, unknown[]>;
   const app = express();

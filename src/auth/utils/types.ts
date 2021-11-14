@@ -139,4 +139,5 @@ export interface AuthStrategy<Roles extends string> {
 export interface AuthOptions<Roles extends string> {
   roleLevels: RoleLevels<Roles>;
   https: boolean;
+  port: number;
 }

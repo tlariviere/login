@@ -1,7 +1,7 @@
-import type { User } from "../../auth/utils/types";
 import path from "path";
 import ejs from "ejs";
 
+import type { User } from "../../auth/utils/types";
 import type { Roles } from "./roles";
 import sendMail from "../sendMail";
 import config from "../../constants/mail";
