@@ -49,13 +49,13 @@ const pwdRecovery = <Roles extends string>(
   router.post(
     "/",
     asyncHandler(async (req: Request, res) => {
-      const { login } = req.body;
-      if (!login) {
-        res.status(400).send("Missing login");
+      const { email } = req.body;
+      if (!email) {
+        res.status(400).send("Missing email");
         return;
       }
 
-      const user = await findUser.byLogin(login);
+      const user = await findUser.byLogin(email);
       if (!user) {
         res.status(404).send("User not found");
         return;

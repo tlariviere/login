@@ -56,23 +56,23 @@ describe("Auth router sign-up without roles", () => {
     findUser.mockClear();
   });
 
-  test("POST / should fail on missing login", async () => {
-    await supertest(app).post("/").send({}).expect(400, "Missing login");
+  test("POST / should fail on missing email", async () => {
+    await supertest(app).post("/").send({}).expect(400, "Missing email");
   });
 
   test("POST / should fail if user can't be found", async () => {
     await supertest(app)
       .post("/")
-      .send({ login: "unknown" })
+      .send({ email: "unknown" })
       .expect(404, "User not found");
   });
 
   test("POST / should return status 200 on success", async () => {
-    await supertest(app).post("/").send({ login: user.name }).expect(200);
+    await supertest(app).post("/").send({ email: user.email }).expect(200);
   });
 
   test("POST / should send email to verify user", async () => {
-    await supertest(app).post("/").send({ login: user.name });
+    await supertest(app).post("/").send({ email: user.email });
     expect(sendPwdRecoverEmail).toHaveBeenCalledWith(user, url, recoverToken);
   });
 
