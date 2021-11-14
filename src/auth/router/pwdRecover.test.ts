@@ -5,10 +5,12 @@ import bcrypt from "bcrypt";
 
 import MockFindUser from "../utils/testing/MockFindUser";
 import { generateToken, verifyToken } from "../utils/jwt";
+import urlOrigin from "../utils/urlOrigin";
 import pwdRecover from "./pwdRecover";
 
 jest.mock("bcrypt");
 jest.mock("../utils/jwt");
+jest.mock("../utils/urlOrigin");
 
 describe("Auth router sign-up without roles", () => {
   const recoverToken = "recover";
@@ -30,6 +32,8 @@ describe("Auth router sign-up without roles", () => {
   const mockGenerateToken = generateToken as jest.Mock<unknown, unknown[]>;
   const mockVerifyToken = verifyToken as jest.Mock<Promise<unknown>, unknown[]>;
   const mockBcryptHash = bcrypt.hash as jest.Mock<Promise<unknown>, unknown[]>;
+  const url = "http://123.123.123.123:1234";
+  const mockUrlOrigin = urlOrigin as jest.Mock<unknown, unknown[]>;
   const app = express();
   app.use(express.json());
   app.use(router);
@@ -37,6 +41,7 @@ describe("Auth router sign-up without roles", () => {
   beforeAll(() => {
     mockGenerateToken.mockReturnValue({ compact: () => recoverToken });
     mockBcryptHash.mockResolvedValue(user.hashedPassword);
+    mockUrlOrigin.mockReturnValue(url);
     findUser.mockResolvedUserIfMatch(user);
   });
 

@@ -17,6 +17,7 @@ import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
 import { verifyToken } from "../utils/jwt";
 import userUnprotectedData from "../utils/userUnprotectedData";
+import urlOrigin from "../utils/urlOrigin";
 
 /**
  * Create router for signing up user with the following routes:
@@ -91,7 +92,7 @@ const signUp = <Roles extends string>(
         hashedPassword,
         role
       );
-      await sendSignUpEmail(username, email, `/verify/${token}`);
+      await sendSignUpEmail(username, email, urlOrigin(req, port), token);
       res.sendStatus(200);
     })
   );

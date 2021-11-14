@@ -2,7 +2,7 @@ import { Router } from "express";
 import { asyncHandler } from "@tlariviere/utils";
 
 import type { Roles } from "../strategy/roles";
-import type { User, AuthorizedReq } from "../../auth/utils/types";
+import type { AuthorizedReq } from "../../auth/utils/types";
 import userUnprotectedData from "../../auth/utils/userUnprotectedData";
 import findUser from "../strategy/findUser";
 
@@ -13,7 +13,11 @@ router.get(
   asyncHandler(async (req, res) => {
     const { user: userInfo } = req as AuthorizedReq<Roles>;
     const user = await findUser.byId(userInfo.id);
-    res.json(userUnprotectedData(user as User<Roles>));
+    if (!user) {
+      res.sendStatus(500);
+    } else {
+      res.json(userUnprotectedData(user));
+    }
   })
 );
 

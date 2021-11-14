@@ -11,6 +11,7 @@ import type {
 } from "../utils/types";
 import config from "../constants/token";
 import { generateToken, verifyToken } from "../utils/jwt";
+import urlOrigin from "../utils/urlOrigin";
 
 /**
  * Create router for password recovery with the following routes:
@@ -29,7 +30,7 @@ import { generateToken, verifyToken } from "../utils/jwt";
  */
 const pwdRecovery = <Roles extends string>(
   findUser: FindUserFunction<Roles>,
-  sendPwdRecoverEmail: SendPwdRecoverEmailFunction,
+  sendPwdRecoverEmail: SendPwdRecoverEmailFunction<Roles>,
   updatePassword: UpdatePasswordFunction<Roles>
 ): Router => {
   const verifyPwdRecoverToken = async (userId: UserId, token: string) => {
@@ -63,11 +64,7 @@ const pwdRecovery = <Roles extends string>(
         config.PWD_RECOVER_TOKEN_LIFETIME,
         user.id
       ).compact();
-      await sendPwdRecoverEmail(
-        user.name,
-        user.email,
-        `/verify/${user.id}/${token}`
-      );
+      await sendPwdRecoverEmail(user, urlOrigin(req, port), token);
       res.sendStatus(200);
     })
   );

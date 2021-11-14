@@ -118,17 +118,22 @@ export type UpdatePasswordFunction<Roles extends string> = (
 export type SendSignUpEmailFunction = (
   username: string,
   email: string,
-  url: string
+  urlOrigin: string,
+  token: string
 ) => Promise<void>;
 
-export type SendPwdRecoverEmailFunction = SendSignUpEmailFunction;
+export type SendPwdRecoverEmailFunction<Roles extends string> = (
+  user: User<Roles>,
+  urlOrigin: string,
+  token: string
+) => Promise<void>;
 
 export interface AuthStrategy<Roles extends string> {
   findUser: FindUserFunction<Roles>;
   createUser: CreateUserFunction<Roles>;
   updatePassword: UpdatePasswordFunction<Roles>;
   sendSignUpEmail: SendSignUpEmailFunction;
-  sendPwdRecoverEmail: SendPwdRecoverEmailFunction;
+  sendPwdRecoverEmail: SendPwdRecoverEmailFunction<Roles>;
 }
 
 export interface AuthOptions<Roles extends string> {
