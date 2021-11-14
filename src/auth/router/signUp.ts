@@ -35,6 +35,7 @@ import urlOrigin from "../utils/urlOrigin";
  * @param tokenFamilies Function to send email verification when signing up new user.
  * @param unverifiedUsers Function to update user's password.
  * @param cookieOptions Cookie options to store auth token.
+ * @param port Server url port.
  * @returns Express router.
  */
 const signUp = <Roles extends string>(
@@ -44,7 +45,8 @@ const signUp = <Roles extends string>(
   roleLevels: RoleLevels<Roles>,
   tokenFamilies: TokenFamilies<Roles>,
   unverifiedUsers: UnverifiedUsers<Roles>,
-  cookieOptions: CookieOptions
+  cookieOptions: CookieOptions,
+  port: number
 ): Router => {
   const availableRoles = Object.keys(roleLevels);
   const router = Router();

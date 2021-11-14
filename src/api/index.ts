@@ -5,6 +5,7 @@ import type { Roles } from "./strategy/roles";
 import { roleLevels } from "./strategy/roles";
 import strategy from "./strategy";
 import auth from "../auth";
+import config from "../constants/server";
 import "./initDB";
 import userRouter from "./routes/user";
 import adminRouter from "./routes/admin";
@@ -19,7 +20,7 @@ const {
   requireLogin,
   requireRole,
   router: authRouter,
-} = auth<Roles>(strategy, { roleLevels, https: false });
+} = auth<Roles>(strategy, { roleLevels, https: false, port: config.PORT });
 
 router.use("/auth", authRouter);
 router.use("/user", requireLogin, userRouter);

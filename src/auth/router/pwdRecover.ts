@@ -26,12 +26,14 @@ import urlOrigin from "../utils/urlOrigin";
  * @param findUser Functions to find user either by id or login (username or email).
  * @param sendPwdRecoverEmail Function to send password recovery email.
  * @param updatePassword Function to update user's password.
+ * @param port Server url port.
  * @returns Express router.
  */
 const pwdRecovery = <Roles extends string>(
   findUser: FindUserFunction<Roles>,
   sendPwdRecoverEmail: SendPwdRecoverEmailFunction<Roles>,
-  updatePassword: UpdatePasswordFunction<Roles>
+  updatePassword: UpdatePasswordFunction<Roles>,
+  port: number
 ): Router => {
   const verifyPwdRecoverToken = async (userId: UserId, token: string) => {
     const user = await findUser.byId(userId);

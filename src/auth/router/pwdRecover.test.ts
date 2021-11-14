@@ -28,7 +28,12 @@ describe("Auth router sign-up without roles", () => {
     token: recoverToken,
     newPassword: "bar",
   };
-  const router = pwdRecover(findUser, sendPwdRecoverEmail, updatePassword);
+  const router = pwdRecover(
+    findUser,
+    sendPwdRecoverEmail,
+    updatePassword,
+    1234
+  );
   const mockGenerateToken = generateToken as jest.Mock<unknown, unknown[]>;
   const mockVerifyToken = verifyToken as jest.Mock<Promise<unknown>, unknown[]>;
   const mockBcryptHash = bcrypt.hash as jest.Mock<Promise<unknown>, unknown[]>;
@@ -68,11 +73,7 @@ describe("Auth router sign-up without roles", () => {
 
   test("POST / should send email to verify user", async () => {
     await supertest(app).post("/").send({ login: user.name });
-    expect(sendPwdRecoverEmail).toHaveBeenCalledWith(
-      user.name,
-      user.email,
-      `/verify/${user.id}/${recoverToken}`
-    );
+    expect(sendPwdRecoverEmail).toHaveBeenCalledWith(user, url, recoverToken);
   });
 
   test("GET /verify/:userId/:token should fail if user can't be found", async () => {
