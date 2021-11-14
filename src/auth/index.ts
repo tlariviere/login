@@ -3,8 +3,8 @@ import type { Router, RequestHandler } from "express";
 import type { AuthStrategy, AuthOptions } from "./types";
 import TokenFamilies from "./TokenFamilies";
 import UnverifiedUsers from "./UnverifiedUsers";
-import requireLogin from "./requireLogin";
-import requireRole from "./requireRole";
+import requireLogin from "./middlewares/requireLogin";
+import requireRole from "./middlewares/requireRole";
 import authRouter from "./router";
 
 interface AuthLib<Roles extends string> {

@@ -1,6 +1,6 @@
-import type { AsyncRequestHandler } from "../utils/types";
-import type { AuthenticateReq } from "./types";
-import TokenFamilies from "./TokenFamilies";
+import type { AsyncRequestHandler } from "../../utils/types";
+import type { AuthenticateReq } from "../types";
+import TokenFamilies from "../TokenFamilies";
 
 /**
  * Middleware to forbid route unless user is logged in.

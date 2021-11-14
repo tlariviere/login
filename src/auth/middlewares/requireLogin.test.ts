@@ -1,10 +1,10 @@
 import type { Response } from "express";
 
-import type { Request } from "../utils/types";
-import type TokenFamilies from "./TokenFamilies";
-import MockTockenFamily from "./testingUtils/MockTokenFamily";
-import MockTokenFamilies from "./testingUtils/MockTokenFamilies";
-import MockResponse from "./testingUtils/MockResponse";
+import type { Request } from "../../utils/types";
+import type TokenFamilies from "../TokenFamilies";
+import MockTockenFamily from "../testingUtils/MockTokenFamily";
+import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
+import MockResponse from "../testingUtils/MockResponse";
 import requireLogin from "./requireLogin";
 
 describe("Require login middleware", () => {
