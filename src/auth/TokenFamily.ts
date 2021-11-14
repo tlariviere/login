@@ -2,7 +2,7 @@ import type { CompactedToken, TokenBody } from "./utils/types";
 import CircularArray from "./utils/CircularArray";
 import TokenValidity from "./TokenValidity";
 import { generateToken } from "./utils/jwt";
-import config from "../constants/token";
+import config from "./constants/token";
 
 export interface TokenCouple {
   accessToken: CompactedToken;

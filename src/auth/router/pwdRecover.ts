@@ -9,7 +9,7 @@ import type {
   UpdatePasswordFunction,
 } from "../utils/types";
 import asyncHandler from "../../utils/asyncHandler";
-import config from "../../constants/token";
+import config from "../constants/token";
 import { generateToken, verifyToken } from "../utils/jwt";
 
 /**

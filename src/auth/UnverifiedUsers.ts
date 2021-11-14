@@ -1,6 +1,6 @@
 import type { CompactedToken, TokenBody } from "./utils/types";
 import { generateToken } from "./utils/jwt";
-import config from "../constants/token";
+import config from "./constants/token";
 
 /**
  * Container for unverified users.

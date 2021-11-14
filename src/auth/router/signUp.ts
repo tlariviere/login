@@ -12,7 +12,7 @@ import type {
 } from "../utils/types";
 import { isSupportedRole } from "../utils/types";
 import asyncHandler from "../../utils/asyncHandler";
-import config from "../../constants/token";
+import config from "../constants/token";
 import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
 import { verifyToken } from "../utils/jwt";

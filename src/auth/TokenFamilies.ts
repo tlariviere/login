@@ -1,6 +1,6 @@
 import type { UserId, AuthTokenBody, JwtAuthData } from "./utils/types";
 import TokenFamily from "./TokenFamily";
-import config from "../constants/token";
+import config from "./constants/token";
 import { verifyToken } from "./utils/jwt";
 
 /**
