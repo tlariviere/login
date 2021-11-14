@@ -1,4 +1,5 @@
-import type { AsyncRequestHandler } from "../../utils/types";
+import type { AsyncRequestHandler } from "@tlariviere/utils";
+
 import type { AuthenticateReq } from "../utils/types";
 import TokenFamilies from "../TokenFamilies";
 

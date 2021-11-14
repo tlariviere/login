@@ -1,4 +1,4 @@
-import integerOr from "../utils/integerOr";
+import { integerOr } from "@tlariviere/utils";
 
 const config = {
   /**

@@ -1,9 +1,9 @@
 import { Router } from "express";
+import { asyncHandler } from "@tlariviere/utils";
 
 import type { AuthStrategy, AuthOptions } from "../utils/types";
 import TokenFamilies from "../TokenFamilies";
 import UnverifiedUsers from "../UnverifiedUsers";
-import asyncHandler from "../../utils/asyncHandler";
 import signUp from "./signUp";
 import signIn from "./signIn";
 import refresh from "./refresh";

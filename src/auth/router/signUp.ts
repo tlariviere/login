@@ -1,8 +1,9 @@
+import type { Request } from "@tlariviere/utils";
 import type { CookieOptions } from "express";
 import { Router } from "express";
 import bcrypt from "bcrypt";
+import { asyncHandler } from "@tlariviere/utils";
 
-import type { Request } from "../../utils/types";
 import type {
   FindUserFunction,
   SendSignUpEmailFunction,
@@ -11,7 +12,6 @@ import type {
   UnverifiedUserTokenBody,
 } from "../utils/types";
 import { isSupportedRole } from "../utils/types";
-import asyncHandler from "../../utils/asyncHandler";
 import config from "../constants/token";
 import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
