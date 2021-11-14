@@ -80,7 +80,7 @@ const signUp = <Roles extends string>(
         findUser.byLogin(email),
       ]);
       if (users.some((user) => user !== null)) {
-        res.status(400).send("Username of email already taken");
+        res.status(400).send("Username or email already taken");
         return;
       }
 
@@ -119,7 +119,7 @@ const signUp = <Roles extends string>(
       } = jwt.body as UnverifiedUserTokenBody<Roles>;
       const hashedPassword = unverifiedUsers.take(jti);
       if (!hashedPassword) {
-        res.status(400).send("User already verified");
+        res.status(404).send("User already verified");
         return;
       }
 

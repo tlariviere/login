@@ -103,7 +103,7 @@ describe("Auth router sign-up without roles", () => {
     await supertest(app)
       .post("/")
       .send(userInfo)
-      .expect(400, "Username of email already taken");
+      .expect(400, "Username or email already taken");
   });
 
   test("POST / should fail on email already taken", async () => {
@@ -111,7 +111,7 @@ describe("Auth router sign-up without roles", () => {
     await supertest(app)
       .post("/")
       .send(userInfo)
-      .expect(400, "Username of email already taken");
+      .expect(400, "Username or email already taken");
   });
 
   test("POST / should return status 200 on success", async () => {
@@ -142,7 +142,7 @@ describe("Auth router sign-up without roles", () => {
     unverifiedUsers.take.mockReturnValueOnce(undefined);
     await supertest(app)
       .post(`/verify/${unverifiedToken}`)
-      .expect(400, "User already verified");
+      .expect(404, "User already verified");
   });
 
   test("POST /verify/:token should create user", async () => {

@@ -64,7 +64,7 @@ describe("Auth router sign-up without roles", () => {
     await supertest(app)
       .post("/")
       .send({ login: "unknown" })
-      .expect(400, "User not found");
+      .expect(404, "User not found");
   });
 
   test("POST / should return status 200 on success", async () => {
@@ -79,7 +79,7 @@ describe("Auth router sign-up without roles", () => {
   test("GET /verify/:userId/:token should fail if user can't be found", async () => {
     await supertest(app)
       .get(`/verify/unknown/${recoverToken}`)
-      .expect(400, "User not found");
+      .expect(404, "User not found");
   });
 
   test("GET /verify/:userId/:token should fail on invalid token", async () => {
@@ -121,7 +121,7 @@ describe("Auth router sign-up without roles", () => {
     await supertest(app)
       .post("/update")
       .send({ ...userUpdateInfo, userId: "unknown" })
-      .expect(400, "User not found");
+      .expect(404, "User not found");
   });
 
   test("POST /update should fail on invalid token", async () => {
