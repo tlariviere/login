@@ -12,7 +12,7 @@ const updatePassword = async (
     user.id,
     { hashedPassword: hashedNewPassword },
     { new: true }
-  ).lean();
+  ).lean({ virtuals: true });
   return updatedUser;
 };
 

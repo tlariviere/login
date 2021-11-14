@@ -14,7 +14,7 @@ const createUser = async (
     hashedPassword,
     role,
   }).save();
-  return document.toObject();
+  return document.toObject({ virtuals: true });
 };
 
 export default createUser;
