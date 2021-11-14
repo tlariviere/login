@@ -3,11 +3,11 @@ import type { Response } from "express";
 
 import type { Request } from "../../utils/types";
 import type TokenFamilies from "../TokenFamilies";
-import MockFindUser from "../testingUtils/MockFindUser";
-import MockTockenFamily from "../testingUtils/MockTokenFamily";
-import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
-import MockResponse from "../testingUtils/MockResponse";
-import userUnprotectedData from "../userUnprotectedData";
+import MockFindUser from "../utils/testing/MockFindUser";
+import MockTockenFamily from "../utils/testing/MockTokenFamily";
+import MockTokenFamilies from "../utils/testing/MockTokenFamilies";
+import MockResponse from "../utils/testing/MockResponse";
+import userUnprotectedData from "../utils/userUnprotectedData";
 import signIn from "./signIn";
 
 jest.mock("bcrypt");

@@ -1,8 +1,8 @@
 import { Router } from "express";
 
 import type { Roles } from "../strategy/roles";
-import type { User, AuthorizedReq } from "../../auth/types";
-import userUnprotectedData from "../../auth/userUnprotectedData";
+import type { User, AuthorizedReq } from "../../auth/utils/types";
+import userUnprotectedData from "../../auth/utils/userUnprotectedData";
 import findUser from "../strategy/findUser";
 import asyncHandler from "../../utils/asyncHandler";
 

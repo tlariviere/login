@@ -1,5 +1,5 @@
-import type { CompactedToken, TokenBody } from "../utils/types";
-import { generateToken } from "./jwt";
+import type { CompactedToken, TokenBody } from "./utils/types";
+import { generateToken } from "./utils/jwt";
 import config from "../constants/token";
 
 /**

@@ -1,7 +1,7 @@
 import type { CookieOptions } from "express";
 
 import type { AsyncRequestHandler } from "../../utils/types";
-import type { AuthenticateReq } from "../types";
+import type { AuthenticateReq } from "../utils/types";
 import TokenFamilies from "../TokenFamilies";
 
 /**

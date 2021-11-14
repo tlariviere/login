@@ -1,5 +1,5 @@
 import "./TokenFamily";
-import { verifyToken } from "./jwt";
+import { verifyToken } from "./utils/jwt";
 import TokenFamilies from "./TokenFamilies";
 
 jest.useFakeTimers();
@@ -14,7 +14,7 @@ jest.mock("./TokenFamily", () =>
     clear: mockTokenFamilyClear,
   }))
 );
-jest.mock("./jwt");
+jest.mock("./utils/jwt");
 
 describe("Token family", () => {
   const tokenFamilies = new TokenFamilies();

@@ -1,6 +1,6 @@
 import type { Router, RequestHandler } from "express";
 
-import type { AuthStrategy, AuthOptions } from "./types";
+import type { AuthStrategy, AuthOptions } from "./utils/types";
 import TokenFamilies from "./TokenFamilies";
 import UnverifiedUsers from "./UnverifiedUsers";
 import requireLogin from "./middlewares/requireLogin";

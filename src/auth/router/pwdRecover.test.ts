@@ -3,12 +3,12 @@ import express from "express";
 import supertest from "supertest";
 import bcrypt from "bcrypt";
 
-import MockFindUser from "../testingUtils/MockFindUser";
-import { generateToken, verifyToken } from "../jwt";
+import MockFindUser from "../utils/testing/MockFindUser";
+import { generateToken, verifyToken } from "../utils/jwt";
 import pwdRecover from "./pwdRecover";
 
 jest.mock("bcrypt");
-jest.mock("../jwt");
+jest.mock("../utils/jwt");
 
 describe("Auth router sign-up without roles", () => {
   const recoverToken = "recover";

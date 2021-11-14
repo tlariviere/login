@@ -1,5 +1,4 @@
 import type express from "express";
-import type { JwtBody } from "njwt";
 
 // ===========================================================================
 // Optional
@@ -46,15 +45,4 @@ export interface AsyncRequestHandler {
     res: express.Response,
     next: express.NextFunction
   ): Promise<void>;
-}
-
-// ===========================================================================
-// Token
-// ===========================================================================
-
-export type CompactedToken = string;
-
-export interface TokenBody extends JwtBody {
-  sub: string;
-  jti: string;
 }

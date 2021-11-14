@@ -1,7 +1,7 @@
-import type { JwtHeader } from "njwt";
+import type { JwtHeader, JwtBody } from "njwt";
 
-import type { Optional, Request, ReqCookies, TokenBody } from "../utils/types";
-import type TokenFamily from "./TokenFamily";
+import type { Optional, Request, ReqCookies } from "../../utils/types";
+import type TokenFamily from "../TokenFamily";
 
 // ===========================================================================
 // User
@@ -52,6 +52,17 @@ export interface AuthenticateReq<Roles extends string> extends Request {
 export interface AuthorizedReq<Roles extends string>
   extends AuthenticateReq<Roles> {
   user: UserInfo<Roles>;
+}
+
+// ===========================================================================
+// Token
+// ===========================================================================
+
+export type CompactedToken = string;
+
+export interface TokenBody extends JwtBody {
+  sub: string;
+  jti: string;
 }
 
 // ===========================================================================

@@ -1,7 +1,7 @@
-import type { UserId, AuthTokenBody, JwtAuthData } from "./types";
+import type { UserId, AuthTokenBody, JwtAuthData } from "./utils/types";
 import TokenFamily from "./TokenFamily";
 import config from "../constants/token";
-import { verifyToken } from "./jwt";
+import { verifyToken } from "./utils/jwt";
 
 /**
  * Container that associate a token families per user.

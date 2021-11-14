@@ -5,16 +5,16 @@ import bcrypt from "bcrypt";
 
 import type TokenFamilies from "../TokenFamilies";
 import type UnverifiedUsers from "../UnverifiedUsers";
-import MockFindUser from "../testingUtils/MockFindUser";
-import MockTockenFamily from "../testingUtils/MockTokenFamily";
-import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
-import MockUnverifiedUsers from "../testingUtils/MockUnverifiedUsers";
-import { verifyToken } from "../jwt";
-import userUnprotectedData from "../userUnprotectedData";
+import MockFindUser from "../utils/testing/MockFindUser";
+import MockTockenFamily from "../utils/testing/MockTokenFamily";
+import MockTokenFamilies from "../utils/testing/MockTokenFamilies";
+import MockUnverifiedUsers from "../utils/testing/MockUnverifiedUsers";
+import { verifyToken } from "../utils/jwt";
+import userUnprotectedData from "../utils/userUnprotectedData";
 import signUp from "./signUp";
 
 jest.mock("bcrypt");
-jest.mock("../jwt");
+jest.mock("../utils/jwt");
 
 type Roles = string;
 const accessToken = "access";

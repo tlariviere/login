@@ -7,10 +7,10 @@ import type {
   FindUserFunction,
   SendPwdRecoverEmailFunction,
   UpdatePasswordFunction,
-} from "../types";
+} from "../utils/types";
 import asyncHandler from "../../utils/asyncHandler";
 import config from "../../constants/token";
-import { generateToken, verifyToken } from "../jwt";
+import { generateToken, verifyToken } from "../utils/jwt";
 
 /**
  * Create router for password recovery with the following routes:

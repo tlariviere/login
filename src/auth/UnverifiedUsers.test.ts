@@ -1,8 +1,8 @@
-import { generateToken } from "./jwt";
+import { generateToken } from "./utils/jwt";
 import UnverifiedUsers from "./UnverifiedUsers";
 
 jest.useFakeTimers();
-jest.mock("./jwt");
+jest.mock("./utils/jwt");
 
 describe("Token family", () => {
   const unverifiedUsers = new UnverifiedUsers();

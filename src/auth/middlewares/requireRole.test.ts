@@ -2,9 +2,9 @@ import type { Response } from "express";
 
 import type { Request } from "../../utils/types";
 import type TokenFamilies from "../TokenFamilies";
-import MockTockenFamily from "../testingUtils/MockTokenFamily";
-import MockTokenFamilies from "../testingUtils/MockTokenFamilies";
-import MockResponse from "../testingUtils/MockResponse";
+import MockTockenFamily from "../utils/testing/MockTokenFamily";
+import MockTokenFamilies from "../utils/testing/MockTokenFamilies";
+import MockResponse from "../utils/testing/MockResponse";
 import requireRole from "./requireRole";
 
 describe("Require role middleware", () => {

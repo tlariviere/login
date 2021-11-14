@@ -1,7 +1,7 @@
-import type { CompactedToken, TokenBody } from "../utils/types";
-import CircularArray from "../utils/CircularArray";
+import type { CompactedToken, TokenBody } from "./utils/types";
+import CircularArray from "./utils/CircularArray";
 import TokenValidity from "./TokenValidity";
-import { generateToken } from "./jwt";
+import { generateToken } from "./utils/jwt";
 import config from "../constants/token";
 
 export interface TokenCouple {

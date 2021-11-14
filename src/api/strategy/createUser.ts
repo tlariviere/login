@@ -1,4 +1,4 @@
-import type { User } from "../../auth/types";
+import type { User } from "../../auth/utils/types";
 import type { Roles } from "./roles";
 import UserModel from "../model/user";
 

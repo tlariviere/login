@@ -9,14 +9,14 @@ import type {
   CreateUserFunction,
   RoleLevels,
   UnverifiedUserTokenBody,
-} from "../types";
-import { isSupportedRole } from "../types";
+} from "../utils/types";
+import { isSupportedRole } from "../utils/types";
 import asyncHandler from "../../utils/asyncHandler";
 import config from "../../constants/token";
 import UnverifiedUsers from "../UnverifiedUsers";
 import TokenFamilies from "../TokenFamilies";
-import { verifyToken } from "../jwt";
-import userUnprotectedData from "../userUnprotectedData";
+import { verifyToken } from "../utils/jwt";
+import userUnprotectedData from "../utils/userUnprotectedData";
 
 /**
  * Create router for signing up user with the following routes:

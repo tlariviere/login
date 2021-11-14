@@ -1,5 +1,5 @@
 import type { Optional } from "../../utils/types";
-import type { UserId, User } from "../../auth/types";
+import type { UserId, User } from "../../auth/utils/types";
 import type { Roles } from "./roles";
 import UserModel from "../model/user";
 

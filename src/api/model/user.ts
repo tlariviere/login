@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-import type { User } from "../../auth/types";
+import type { User } from "../../auth/utils/types";
 import type { Roles } from "../strategy/roles";
 import { roles } from "../strategy/roles";
 
