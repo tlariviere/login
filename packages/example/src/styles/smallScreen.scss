@@ -1,0 +1,7 @@
+@import "constants.scss";
+
+@mixin isSmallScreen {
+  @media screen and (max-width: $pageWidth) {
+    @content;
+  }
+}
