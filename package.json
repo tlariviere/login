@@ -8,8 +8,9 @@
   ],
   "scripts": {
     "start": "npm start --workspace=example",
-    "build": "npm run build --workspaces",
-    "prod": "npm run build && NODE_ENV=production node ./packages/example",
+    "build:dev": "npm run build --workspace=@tlariviere/auth & npm run build:dev --workspace=example",
+    "build:prod": "npm run build --workspace=@tlariviere/auth & npm run build:prod --workspace=example",
+    "prod": "npm run build:prod && NODE_ENV=production node ./packages/example",
     "lint": "npx eslint . --ext .ts,.tsx",
     "test": "npx jest"
   },
