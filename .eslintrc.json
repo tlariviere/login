@@ -5,7 +5,10 @@
     "jest/globals": true
   },
   "extends": [
-    "airbnb-base",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:jest/recommended",
@@ -16,6 +19,9 @@
     "prefer-arrow"
   ],
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 12,
     "sourceType": "module",
     "project": [
@@ -46,7 +52,9 @@
       "ignorePackages",
       {
         "js": "never",
-        "ts": "never"
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "lines-between-class-members": [
@@ -92,6 +100,15 @@
       {
         "ignoreIIFE": true
       }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".tsx",
+          ".jsx"
+        ]
+      }
     ]
   },
   "settings": {
@@ -102,7 +119,9 @@
       "node": {
         "extensions": [
           ".js",
-          ".ts"
+          ".jsx",
+          ".ts",
+          ".tsx"
         ]
       }
     }
