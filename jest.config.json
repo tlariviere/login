@@ -5,6 +5,6 @@
   "coverageProvider": "v8",
   "testEnvironment": "node",
   "modulePathIgnorePatterns": [
-    "./dist/"
+    "dist"
   ]
 }

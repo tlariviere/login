@@ -1,7 +1,7 @@
+import type { User } from "@tlariviere/auth";
 import { Schema, model } from "mongoose";
 import mongooseLeanVirtuals from "mongoose-lean-virtuals";
 
-import type { User } from "../../auth/utils/types";
 import type { Roles } from "../strategy/roles";
 import { roles } from "../strategy/roles";
 

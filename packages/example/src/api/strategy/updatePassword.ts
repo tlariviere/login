@@ -1,6 +1,6 @@
 import type { Optional } from "@tlariviere/utils";
+import type { User } from "@tlariviere/auth";
 
-import type { User } from "../../auth/utils/types";
 import type { Roles } from "./roles";
 import UserModel from "../model/user";
 

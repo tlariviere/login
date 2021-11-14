@@ -1,10 +1,10 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import auth from "@tlariviere/auth";
 
 import type { Roles } from "./strategy/roles";
 import { roleLevels } from "./strategy/roles";
 import strategy from "./strategy";
-import auth from "../auth";
 import config from "../constants/server";
 import "./initDB";
 import userRouter from "./routes/user";
