@@ -30,6 +30,10 @@ const auth = <Roles extends string>(
   const tokenFamilies: TokenFamilies<Roles> = new TokenFamilies();
   const unverifiedUsers: UnverifiedUsers<Roles> = new UnverifiedUsers();
 
+  if (process.env.NODE_ENV === "production" && !options.https) {
+    throw new Error("Non encrypted communication is not safe for production !");
+  }
+
   return {
     requireLogin: requireLogin(tokenFamilies),
     requireRole: (requiredRole: Roles) =>
