@@ -7,6 +7,9 @@ import requireLogin from "./middlewares/requireLogin";
 import requireRole from "./middlewares/requireRole";
 import authRouter from "./router";
 
+export { default as userUnprotectedData } from "./utils/userUnprotectedData";
+export * from "./utils/types";
+
 interface AuthLib<Roles extends string> {
   requireLogin: RequestHandler;
   requireRole: (requiredRole: Roles) => RequestHandler;

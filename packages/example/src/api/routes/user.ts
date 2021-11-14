@@ -1,9 +1,9 @@
+import type { AuthorizedReq } from "@tlariviere/auth";
 import { Router } from "express";
 import { asyncHandler } from "@tlariviere/utils";
+import { userUnprotectedData } from "@tlariviere/auth";
 
 import type { Roles } from "../strategy/roles";
-import type { AuthorizedReq } from "../../auth/utils/types";
-import userUnprotectedData from "../../auth/utils/userUnprotectedData";
 import findUser from "../strategy/findUser";
 
 const router = Router();
