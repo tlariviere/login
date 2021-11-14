@@ -1,6 +1,7 @@
 {
   "name": "@tlariviere/login",
   "version": "0.0.0",
+  "description": "Authenticate and authorize library and example application",
   "private": true,
   "main": "dist/server.js",
   "scripts": {

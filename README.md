@@ -1,2 +1,2 @@
 # login
-Login API
+Authenticate and authorize library and example application.
