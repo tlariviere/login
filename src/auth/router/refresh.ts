@@ -3,6 +3,7 @@ import type { AsyncRequestHandler } from "@tlariviere/utils";
 
 import type { AuthenticateReq } from "../utils/types";
 import TokenFamilies from "../TokenFamilies";
+import config from "../constants/token";
 
 /**
  * POST request handler to refresh access token.
@@ -33,8 +34,14 @@ const refresh = <Roles extends string>(
       );
       res
         .status(200)
-        .cookie("access_token", accessToken, cookieOptions)
-        .cookie("refresh_token", refreshToken, cookieOptions)
+        .cookie("access_token", accessToken, {
+          ...cookieOptions,
+          maxAge: config.ACCESS_TOKEN_LIFETIME,
+        })
+        .cookie("refresh_token", refreshToken, {
+          ...cookieOptions,
+          maxAge: config.REFRESH_TOKEN_LIFETIME,
+        })
         .send();
     } catch (err) {
       res.status(401).send((err as Error).message);

@@ -5,6 +5,7 @@ import type TokenFamilies from "../TokenFamilies";
 import MockTockenFamily from "../utils/testing/MockTokenFamily";
 import MockTokenFamilies from "../utils/testing/MockTokenFamilies";
 import MockResponse from "../utils/testing/MockResponse";
+import config from "../constants/token";
 import refresh from "./refresh";
 
 describe("Auth router token refresh", () => {
@@ -59,15 +60,13 @@ describe("Auth router token refresh", () => {
       cookies: { refresh_token: refreshToken },
     } as unknown as Request;
     await handler(req, res as unknown as Response, next);
-    expect(res.cookie).toHaveBeenCalledWith(
-      "access_token",
-      accessToken,
-      cookieOptions
-    );
-    expect(res.cookie).toHaveBeenCalledWith(
-      "refresh_token",
-      refreshToken,
-      cookieOptions
-    );
+    expect(res.cookie).toHaveBeenCalledWith("access_token", accessToken, {
+      ...cookieOptions,
+      maxAge: config.ACCESS_TOKEN_LIFETIME,
+    });
+    expect(res.cookie).toHaveBeenCalledWith("refresh_token", refreshToken, {
+      ...cookieOptions,
+      maxAge: config.REFRESH_TOKEN_LIFETIME,
+    });
   });
 });
