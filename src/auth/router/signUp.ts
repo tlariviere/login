@@ -131,8 +131,14 @@ const signUp = <Roles extends string>(
       );
       res
         .status(201)
-        .cookie("access_token", accessToken, cookieOptions)
-        .cookie("refresh_token", refreshToken, cookieOptions)
+        .cookie("access_token", accessToken, {
+          ...cookieOptions,
+          maxAge: config.ACCESS_TOKEN_LIFETIME,
+        })
+        .cookie("refresh_token", refreshToken, {
+          ...cookieOptions,
+          maxAge: config.REFRESH_TOKEN_LIFETIME,
+        })
         .json(userUnprotectedData(user));
     })
   );

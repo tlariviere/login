@@ -5,6 +5,7 @@ import type { Request, AsyncRequestHandler } from "@tlariviere/utils";
 import type { FindUserFunction } from "../utils/types";
 import userUnprotectedData from "../utils/userUnprotectedData";
 import TokenFamilies from "../TokenFamilies";
+import config from "../constants/token";
 
 /**
  * Login POST request handler.
@@ -45,8 +46,14 @@ const signIn = <Roles extends string>(
     );
     res
       .status(200)
-      .cookie("access_token", accessToken, cookieOptions)
-      .cookie("refresh_token", refreshToken, cookieOptions)
+      .cookie("access_token", accessToken, {
+        ...cookieOptions,
+        maxAge: config.ACCESS_TOKEN_LIFETIME,
+      })
+      .cookie("refresh_token", refreshToken, {
+        ...cookieOptions,
+        maxAge: config.REFRESH_TOKEN_LIFETIME,
+      })
       .json(userUnprotectedData(user));
   };
 };

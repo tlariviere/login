@@ -12,6 +12,7 @@ import MockUnverifiedUsers from "../utils/testing/MockUnverifiedUsers";
 import { verifyToken } from "../utils/jwt";
 import userUnprotectedData from "../utils/userUnprotectedData";
 import urlOrigin from "../utils/urlOrigin";
+import config from "../constants/token";
 import signUp from "./signUp";
 
 jest.mock("bcrypt");
@@ -174,11 +175,19 @@ describe("Auth router sign-up without roles", () => {
       .post(`/verify/${unverifiedToken}`)
       .expect(
         "set-cookie",
-        new RegExp(`access_token=${accessToken};.*HttpOnly;.*SameSite=Strict`)
+        new RegExp(
+          `access_token=${accessToken};.*Max-Age=${
+            config.ACCESS_TOKEN_LIFETIME / 1000
+          };.*HttpOnly;.*SameSite=Strict`
+        )
       )
       .expect(
         "set-cookie",
-        new RegExp(`refresh_token=${refreshToken};.*HttpOnly;.*SameSite=Strict`)
+        new RegExp(
+          `refresh_token=${refreshToken};.*Max-Age=${
+            config.REFRESH_TOKEN_LIFETIME / 1000
+          }.*HttpOnly;.*SameSite=Strict`
+        )
       );
   });
 });
