@@ -63,9 +63,9 @@ export default class TokenFamily<Roles extends string> {
    */
   public isAccessTokenValid(jti: string): boolean {
     return (
-      !this.currentAccessToken_ ||
-      !this.currentAccessToken_.isValid() ||
-      jti !== this.currentAccessToken_.jti
+      this.currentAccessToken_ !== undefined &&
+      this.currentAccessToken_.isValid() &&
+      jti === this.currentAccessToken_.jti
     );
   }
 
