@@ -29,7 +29,7 @@ const signIn = <Roles extends string>(
 
     const user = await findUser.byLogin(login);
     if (!user) {
-      res.status(400).send("User not found");
+      res.status(404).send("User not found");
       return;
     }
 

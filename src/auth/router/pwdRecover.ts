@@ -57,7 +57,7 @@ const pwdRecovery = <Roles extends string>(
 
       const user = await findUser.byLogin(login);
       if (!user) {
-        res.status(400).send("User not found");
+        res.status(404).send("User not found");
         return;
       }
 
@@ -79,7 +79,8 @@ const pwdRecovery = <Roles extends string>(
         await verifyPwdRecoverToken(userId, token);
         res.sendStatus(200);
       } catch (err) {
-        res.status(400).send((err as Error).message);
+        const { message } = err as Error;
+        res.status(message === "User not found" ? 404 : 400).send(message);
       }
     })
   );
@@ -97,7 +98,8 @@ const pwdRecovery = <Roles extends string>(
       try {
         user = await verifyPwdRecoverToken(userId, token);
       } catch (err) {
-        res.status(400).send((err as Error).message);
+        const { message } = err as Error;
+        res.status(message === "User not found" ? 404 : 400).send(message);
         return;
       }
 

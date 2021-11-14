@@ -67,7 +67,7 @@ describe("Auth router sign-in", () => {
       body: { login: "unknown", password: "bar" },
     } as unknown as Request;
     await handler(req, res as unknown as Response, next);
-    expect(res.statusCode).toBe(400);
+    expect(res.statusCode).toBe(404);
     expect(res.send).toHaveBeenCalledWith("User not found");
   });
 
