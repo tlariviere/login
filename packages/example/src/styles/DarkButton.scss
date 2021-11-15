@@ -1,0 +1,7 @@
+@import "bootstrap";
+
+.DarkButton {
+  @extend .btn;
+  @extend .btn-dark;
+  @extend .btn-outline-light;
+}
