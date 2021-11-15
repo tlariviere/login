@@ -1,5 +1,11 @@
 import React from "react";
 
-const App: React.FC = () => <div />;
+import Footer from "../components/Footer";
+
+const App: React.FC = () => (
+  <div>
+    <Footer />
+  </div>
+);
 
 export default App;
