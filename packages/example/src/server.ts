@@ -20,6 +20,7 @@ app.use(helmet());
 app.use("/api", apiRouter);
 
 const pages = [
+  "/sign-in",
   "/user",
 ];
 
