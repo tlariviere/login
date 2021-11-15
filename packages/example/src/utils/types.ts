@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 // ===========================================================================
 // Error
 // ===========================================================================
@@ -13,3 +15,12 @@ export interface SystemError extends NodeError {
 export const isSystemError = (error: NodeError): error is SystemError => {
   return (error as SystemError).syscall !== undefined;
 };
+
+// ===========================================================================
+// React
+// ===========================================================================
+
+export interface WithChildrenProps {
+  children: ReactNode;
+}
+
