@@ -23,6 +23,9 @@ const pages = [
   "/sign-in",
   "/sign-up/verify/:token",
   "/sign-up",
+  "/pwd-recover/verify/:userId/:token",
+  "/pwd-recover/update",
+  "/pwd-recover",
   "/user",
   "/admin",
 ];

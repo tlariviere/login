@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignUpVerify from "./SignUpVerify";
+import PwdRecover from "./PwdRecover";
+import PwdRecoverVerify from "./PwdRecoverVerify";
 import UserInfo from "../components/UserInfo";
 import Admin from "../components/Admin";
 import useQueryRequireLogin from "../hooks/useQueryRequireLogin";
@@ -45,6 +47,11 @@ const App: React.FC = () => {
                 <Route path="/sign-in" component={SignIn} />
                 <Route path="/sign-up/verify/:token" component={SignUpVerify} />
                 <Route path="/sign-up" component={SignUp} />
+                <Route
+                  path="/pwd-recover/verify/:userId/:token"
+                  component={PwdRecoverVerify}
+                />
+                <Route path="/pwd-recover" component={PwdRecover} />
                 <Route path="/">
                   <Redirect to="/sign-in" />
                 </Route>
