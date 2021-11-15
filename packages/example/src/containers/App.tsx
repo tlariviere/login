@@ -8,6 +8,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignUpVerify from "./SignUpVerify";
 import UserInfo from "../components/UserInfo";
+import Admin from "../components/Admin";
 import useQueryRequireLogin from "../hooks/useQueryRequireLogin";
 import { fetchJson } from "../utils/fetchHelpers";
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
                 <Route path="/user">
                   <UserInfo user={user as UserData} />
                 </Route>
+                {isAdmin && <Route path="/admin" component={Admin} />}
                 <Route path="/sign-up/verify/:token" component={SignUpVerify} />
                 <Route path="/">
                   <Redirect to="/user" />
