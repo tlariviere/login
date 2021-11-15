@@ -5,6 +5,8 @@ import type { UserData } from "../utils/types";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import SignUpVerify from "./SignUpVerify";
 import UserInfo from "../components/UserInfo";
 import useQueryRequireLogin from "../hooks/useQueryRequireLogin";
 import { fetchJson } from "../utils/fetchHelpers";
@@ -31,6 +33,7 @@ const App: React.FC = () => {
                 <Route path="/user">
                   <UserInfo user={user as UserData} />
                 </Route>
+                <Route path="/sign-up/verify/:token" component={SignUpVerify} />
                 <Route path="/">
                   <Redirect to="/user" />
                 </Route>
@@ -38,6 +41,8 @@ const App: React.FC = () => {
             ) : (
               <Switch>
                 <Route path="/sign-in" component={SignIn} />
+                <Route path="/sign-up/verify/:token" component={SignUpVerify} />
+                <Route path="/sign-up" component={SignUp} />
                 <Route path="/">
                   <Redirect to="/sign-in" />
                 </Route>

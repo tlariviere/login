@@ -21,6 +21,8 @@ app.use("/api", apiRouter);
 
 const pages = [
   "/sign-in",
+  "/sign-up/verify/:token",
+  "/sign-up",
   "/user",
 ];
 
