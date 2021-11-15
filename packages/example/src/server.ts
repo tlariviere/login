@@ -19,6 +19,15 @@ app.use(logger("dev"));
 app.use(helmet());
 app.use("/api", apiRouter);
 
+const pages = [
+  "/user",
+];
+
+app.get(pages, (req, res, next) => {
+  req.url = "/"; // react-router requires to serve index.html on any page route.
+  next();
+});
+
 if (process.env.NODE_ENV === "development") {
   const compiler = webpack(webpackConfig as webpack.Configuration);
   app.use(
