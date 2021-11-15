@@ -24,6 +24,7 @@ const pages = [
   "/sign-up/verify/:token",
   "/sign-up",
   "/user",
+  "/admin",
 ];
 
 app.get(pages, (req, res, next) => {
