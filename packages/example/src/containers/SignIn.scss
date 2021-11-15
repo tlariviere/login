@@ -1,0 +1,6 @@
+@import "bootstrap";
+
+.ForgottenPwd {
+  @extend .form-label;
+  font-size: 0.9em;
+}

@@ -1,0 +1,48 @@
+@import "bootstrap";
+
+%-MessageBox {
+  @extend .shadow-none;
+  @extend .border-0;
+  @extend .fs-6;
+  @extend .pb-5;
+
+  div {
+    min-height: 36px;
+  }
+}
+
+%-Symbol {
+  @extend .float-start;
+  @extend .clearfix;
+  @extend .me-3;
+  @extend .fs-4;
+}
+
+.ErrorBox {
+  @extend .text-white;
+  @extend .bg-danger;
+  @extend %-MessageBox;
+
+  .ErrorSymbol {
+    @extend %-Symbol;
+  }
+}
+
+.WarningBox {
+  @extend .bg-warning;
+  @extend %-MessageBox;
+
+  .WarningSymbol {
+    @extend %-Symbol;
+  }
+}
+
+.SuccessBox {
+  @extend .text-white;
+  @extend .bg-success;
+  @extend %-MessageBox;
+
+  .SuccessSymbol {
+    @extend %-Symbol;
+  }
+}
