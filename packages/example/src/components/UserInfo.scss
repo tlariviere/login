@@ -1,0 +1,40 @@
+@import "bootstrap";
+
+.UserInfo {  
+  display: flex;
+  
+  > div {
+    @extend .m-auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 75px auto;
+
+    > * {
+      @extend .my-auto;
+    }
+
+    p {
+      margin-bottom: 0.25em;
+    }
+
+    .Avatar {
+      display: block;
+      width: 75px;
+      height: 75px;
+    }
+
+    .Name {
+      @extend .text-capitalize;
+      @extend .fs-3;      
+    }
+
+    .Email {
+      @extend .fs-5;
+    }
+
+    .Role {
+      @extend .fs-6;
+      @extend .text-muted;
+    }
+  }
+}

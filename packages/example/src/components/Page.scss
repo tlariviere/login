@@ -1,0 +1,29 @@
+@import "bootstrap";
+@import "../styles/smallScreen.scss";
+@import "../styles/constants.scss";
+
+.Page {
+  @extend .mx-auto;
+  @extend .my-5;
+  width: $pageWidth;
+  margin-bottom: 100%;
+
+  @include isSmallScreen {
+    width: 100%;
+  }
+}
+
+.Box {
+  @extend .bg-white;
+  @extend .shadow-sm;
+  @extend .border;
+  @extend .rounded-3;
+  @extend .mx-auto;
+  @extend .my-3;
+  @extend .p-4;
+
+  &.small {
+    @extend .p-3;
+    width: $smallContentWidth;
+  }
+}
