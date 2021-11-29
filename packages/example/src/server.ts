@@ -1,5 +1,6 @@
 import path from "path";
-import http from "http";
+import https from "https";
+import fs from "fs";
 import express from "express";
 import logger from "morgan";
 import helmet from "helmet";
@@ -12,6 +13,9 @@ import webpackConfig from "./webpack.config";
 import apiRouter from "./api";
 import exitWithError from "./utils/exitWithError";
 import { isSystemError } from "./utils/types";
+
+const key = fs.readFileSync(config.TLS_KEY_PATH);
+const cert = fs.readFileSync(config.TLS_CERT_PATH);
 
 const app = express();
 
@@ -46,7 +50,7 @@ if (process.env.NODE_ENV === "development") {
   app.get("/*", express.static(path.join(__dirname, "public")));
 }
 
-const server = http.createServer(app);
+const server = https.createServer({ key, cert }, app);
 
 server.on("error", (error: NodeError) => {
   if (!isSystemError(error) || error.syscall !== "listen") {
@@ -66,6 +70,6 @@ server.on("error", (error: NodeError) => {
 });
 
 server.on("listening", () =>
-  console.log(`Server running at http://127.0.0.1:${config.PORT}/`)
+  console.log(`Server running at https://127.0.0.1:${config.PORT}/`)
 );
 server.listen(config.PORT);

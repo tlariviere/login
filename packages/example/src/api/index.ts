@@ -20,7 +20,7 @@ const {
   requireLogin,
   requireRole,
   router: authRouter,
-} = auth<Roles>(strategy, { roleLevels, https: false, port: config.PORT });
+} = auth<Roles>(strategy, { roleLevels, https: true, port: config.PORT });
 
 router.use("/auth", authRouter);
 router.use("/user", requireLogin, userRouter);
