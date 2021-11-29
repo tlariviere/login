@@ -6,7 +6,7 @@ import config from "../constants/db";
 (async () => {
   const handleError = (err: Error) =>
     exitWithError(
-      `Failed to connect to '${config.MONGODB_URI}/${config.MONGODB_DB_NAME}': ${err.message}`
+      `Failed to connect to '${config.MONGODB_URL}/${config.MONGODB_DB_NAME}': ${err.message}`
     );
 
   let auth;
@@ -18,7 +18,7 @@ import config from "../constants/db";
   }
 
   try {
-    await mongoose.connect(config.MONGODB_URI, {
+    await mongoose.connect(config.MONGODB_URL, {
       dbName: config.MONGODB_DB_NAME,
       auth,
     });
@@ -30,7 +30,7 @@ import config from "../constants/db";
   mongoose.connection.on(
     "connected",
     () =>
-      `Connected to mongoDB server at '${config.MONGODB_URI}/${config.MONGODB_DB_NAME}'`
+      `Connected to mongoDB server at '${config.MONGODB_URL}/${config.MONGODB_DB_NAME}'`
   );
   mongoose.connection.on(
     "disconnected",
