@@ -1,0 +1,49 @@
+name: Publish package
+on:
+  release:
+    types: [created]
+jobs:
+  publish-auth-package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.7'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@tlariviere'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --workspace=@tlariviere/login
+      - working-directory: ./packages/lib
+        run: npm publish
+
+  publish-example-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: login-example-app
+    steps:
+      - uses: actions/checkout@v2
+      - id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      - uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: "NPM_REGISTRY_USERNAME=${{ github.repository_owner }}"
+          secrets: |
+            "npm_registry_password=${{ secrets.NPM_REGISTRY_PASSWORD }}"
+            "npm_registry_email=${{ secrets.NPM_REGISTRY_EMAIL }}"
