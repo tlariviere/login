@@ -1,0 +1,24 @@
+services:
+  login-app:
+    image: ${LOGIN_APP_IMAGE:-ghcr.io/tlariviere/login-example-app}
+    ports:
+      - 8080:8080
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017
+    secrets:
+      - tls_key
+      - tls_cert
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    command: --quiet --logpath /dev/null
+volumes:
+  mongodb: {}
+secrets:
+  tls_key:
+    file: secrets/server.key
+  tls_cert:
+    file: secrets/server.cert

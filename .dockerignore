@@ -1,0 +1,8 @@
+node_modules
+coverage
+.dockerignore
+docker*
+Dockerfile
+.nvmrc
+.git*
+secrets
