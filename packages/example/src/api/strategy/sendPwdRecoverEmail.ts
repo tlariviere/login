@@ -21,7 +21,7 @@ const sendPwdRecoverEmail = async (
     subject: "Reset your password",
     text: `Hi ${user.name} !\n\nPlease use this link to reset your password: ${url}`,
     html: await ejs.renderFile(
-      path.resolve(__dirname, "../views/signUpMail.ejs"),
+      path.resolve(__dirname, "../../../src/api/views/signUpMail.ejs"),
       {
         username: user.name,
         url,

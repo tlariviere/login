@@ -17,7 +17,7 @@ const sendSignUpEmail = async (
     subject: "Complete your registration",
     text: `Welcome ${username} !\n\nTo complete your sign up, please click the link here: ${url}`,
     html: await ejs.renderFile(
-      path.resolve(__dirname, "../views/signUpMail.ejs"),
+      path.resolve(__dirname, "../../../src/api/views/signUpMail.ejs"),
       {
         username,
         url,
