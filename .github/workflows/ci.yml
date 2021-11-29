@@ -19,7 +19,7 @@ jobs:
           scope: '@tlariviere'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build:prod
+      - run: npm run build
       - run: npm run lint
       - run: npm test
       - uses: actions/upload-artifact@v2

@@ -5,8 +5,7 @@
   "main": "./dist/server.js",
   "scripts": {
     "start": "NODE_ENV=development npx ts-node ./src/server.ts",
-    "build:dev": "npx tsc && NODE_ENV=development webpack --config ./src/webpack.config.ts",
-    "build:prod": "npx tsc && NODE_ENV=production webpack --config ./src/webpack.config.ts"
+    "build": "npx tsc && npx webpack --config ./src/webpack.config.ts"
   },
   "keywords": [],
   "author": "Thibaud LARIVIERE",
