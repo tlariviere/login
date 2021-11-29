@@ -1,4 +1,4 @@
-import type { RoleLevels } from "@tlariviere/auth";
+import type { RoleLevels } from "@tlariviere/login";
 
 export const roles = ["user", "admin"] as const;
 

@@ -1,4 +1,4 @@
-import type { User } from "@tlariviere/auth";
+import type { User } from "@tlariviere/login";
 
 import type { Roles } from "./roles";
 import UserModel from "../model/user";

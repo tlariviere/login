@@ -1,22 +1,17 @@
 {
-  "name": "@tlariviere/auth",
+  "name": "@tlariviere/login",
   "version": "1.0.0",
-  "private": true,
   "main": "./dist/index.js",
-  "types": "./src/index.ts",
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./src/index.ts"
-      ]
-    }
-  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "npx tsc"
   },
   "keywords": [],
   "author": "Thibaud LARIVIERE",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@tlariviere/utils": "^0.1.0",
     "bcrypt": "^5.0.1",

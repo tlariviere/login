@@ -1,4 +1,4 @@
-import type { User } from "@tlariviere/auth";
+import type { User } from "@tlariviere/login";
 import { Schema, model } from "mongoose";
 import mongooseLeanVirtuals from "mongoose-lean-virtuals";
 

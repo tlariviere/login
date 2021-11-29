@@ -1,7 +1,7 @@
-import type { AuthorizedReq } from "@tlariviere/auth";
+import type { AuthorizedReq } from "@tlariviere/login";
 import { Router } from "express";
 import { asyncHandler } from "@tlariviere/utils";
-import { userUnprotectedData } from "@tlariviere/auth";
+import { userUnprotectedData } from "@tlariviere/login";
 
 import type { Roles } from "../strategy/roles";
 import findUser from "../strategy/findUser";

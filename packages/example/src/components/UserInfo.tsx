@@ -1,4 +1,4 @@
-import type { UserUnprotectedData } from "@tlariviere/auth";
+import type { UserUnprotectedData } from "@tlariviere/login";
 import React from "react";
 
 import type { Roles } from "../api/strategy/roles";

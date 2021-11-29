@@ -1,4 +1,4 @@
-import type { UserId, User } from "@tlariviere/auth";
+import type { UserId, User } from "@tlariviere/login";
 import type { Optional } from "@tlariviere/utils";
 
 import type { Roles } from "./roles";

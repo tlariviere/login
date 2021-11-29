@@ -1,9 +1,10 @@
 {
-  "name": "@tlariviere/login",
+  "name": "@tlariviere/login-workspace",
   "version": "1.0.0",
   "description": "Authenticate and authorize library and example application",
+  "private": true,
   "workspaces": [
-    "packages/auth",
+    "packages/lib",
     "packages/example"
   ],
   "scripts": {

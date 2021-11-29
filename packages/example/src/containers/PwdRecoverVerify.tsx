@@ -1,4 +1,4 @@
-import type { UserId } from "@tlariviere/auth";
+import type { UserId } from "@tlariviere/login";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";

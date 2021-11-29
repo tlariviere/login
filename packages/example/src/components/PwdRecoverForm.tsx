@@ -1,5 +1,5 @@
 import type { FormEventHandler } from "react";
-import type { UserId } from "@tlariviere/auth";
+import type { UserId } from "@tlariviere/login";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useMutation } from "react-query";

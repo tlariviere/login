@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { QueryKey, UseQueryOptions } from "react-query";
-import type { UserUnprotectedData } from "@tlariviere/auth";
+import type { UserUnprotectedData } from "@tlariviere/login";
 
 import type { Roles } from "../api/strategy/roles";
 

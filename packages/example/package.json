@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@tlariviere/utils": "^0.1.0",
-    "@tlariviere/auth": "file:packages/auth",
+    "@tlariviere/login": "file:packages/lib",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.6.1",
