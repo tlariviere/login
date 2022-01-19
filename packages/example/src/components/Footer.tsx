@@ -24,7 +24,7 @@ const Footer: React.FC = () => (
     <div className="my-1">
       <SocialNetwork
         name="linkedin"
-        href="https://www.linkedin.com/in/thibaud-larivi%C3%A8re-0451655b/"
+        href="https://www.linkedin.com/in/thibaud-lariviere"
       />
       <SocialNetwork name="github" href="https://github.com/tlariviere" />
     </div>
